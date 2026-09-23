@@ -24,7 +24,7 @@ public class RD_followCameraScript : MonoBehaviour
             thePlaneScript.TurnRed();
         }
 
-        transform.position = Vector3.Lerp(transform.position, thePlane.transform.position - 10 * thePlane.forward + 2 * thePlane.up, 0.015f);
+        transform.position = Vector3.Lerp(transform.position, thePlane.transform.position - 15 * thePlane.forward + 4 * thePlane.up, 0.015f);
 
         transform.rotation = Quaternion.Slerp(transform.rotation, thePlane.rotation, 0.015f);
 
