@@ -1,7 +1,6 @@
-using System;
 using UnityEngine;
 
-public class RS_PlaneControl : MonoBehaviour
+public class NQ_PlaneControl : MonoBehaviour
 {
     float pitchingSpeed = 45f;  // Speed in degrees per second for pitching
     private float rollingSpeed = 45f;
@@ -10,8 +9,7 @@ public class RS_PlaneControl : MonoBehaviour
     private float gravity = 9.81f;
     float drag = 1;
     public GameObject theBombCloneTemplate;
-
-    RS_BombSlotScript[] bombSlots;
+    NQ_BombSlotScript[] bombSlot;
 
     internal void TurnRed()
     {
@@ -24,11 +22,12 @@ public class RS_PlaneControl : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-       bombSlots = GetComponentsInChildren<RS_BombSlotScript>();
+        bombSlot = GetComponentsInChildren<NQ_BombSlotScript>();
 
-        for (int i = 0; i < bombSlots.Length; i++)
+        for (int i = 0; i < bombSlot.Length; i++)
         {
-            bombSlots[i].IamTheBoss(this);
+            bombSlot[i].IamTheBoss(this);
+
         }
     }
 
@@ -75,19 +74,15 @@ public class RS_PlaneControl : MonoBehaviour
             acceleration += transform.forward * thrustValue;
         }
 
-  
-        acceleration += -drag* velocity;
+        acceleration += -drag * velocity;
 
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            GameObject newBombGO = Instantiate(theBombCloneTemplate, transform.position, transform.rotation);
-            RS_BombScript theNewBombScript = newBombGO.GetComponent<RS_BombScript>();
-            theNewBombScript.SetInitialVelocity(velocity);
-
+           GameObject newBombGO = Instantiate(theBombCloneTemplate, transform.position, transform.rotation);
+            NQ_BombScript theNewBombScript = newBombGO.GetComponent<NQ_BombScript>();
+            theNewBombScript.SetInitalVelocity(velocity);
         }
         velocity += acceleration * Time.deltaTime;
         transform.position += velocity * Time.deltaTime;
-
-
     }
 }
