@@ -11,16 +11,25 @@ public class RS_PlaneControl : MonoBehaviour
     float drag = 1;
     public GameObject theBombCloneTemplate;
 
+    RS_BombSlotScript[] bombSlots;
+
     internal void TurnRed()
     {
-       Renderer r = GetComponentInChildren<Renderer>();
+
+        Renderer r = GetComponentInChildren<Renderer>();
+
         r.material.color = Color.red;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-       
+       bombSlots = GetComponentsInChildren<RS_BombSlotScript>();
+
+        for (int i = 0; i < bombSlots.Length; i++)
+        {
+            bombSlots[i].IamTheBoss(this);
+        }
     }
 
     // Update is called once per frame
@@ -66,11 +75,16 @@ public class RS_PlaneControl : MonoBehaviour
             acceleration += transform.forward * thrustValue;
         }
 
-        if (Input.GetKeyDown(KeyCode.Return))
-            Instantiate(theBombCloneTemplate);
-
+  
         acceleration += -drag* velocity;
 
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            GameObject newBombGO = Instantiate(theBombCloneTemplate, transform.position, transform.rotation);
+            RS_BombScript theNewBombScript = newBombGO.GetComponent<RS_BombScript>();
+            theNewBombScript.SetInitialVelocity(velocity);
+
+        }
         velocity += acceleration * Time.deltaTime;
         transform.position += velocity * Time.deltaTime;
 
