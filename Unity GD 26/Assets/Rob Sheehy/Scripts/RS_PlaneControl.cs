@@ -5,11 +5,13 @@ public class RS_PlaneControl : MonoBehaviour
 {
     float pitchingSpeed = 45f;  // Speed in degrees per second for pitching
     private float rollingSpeed = 45f;
-    Vector3 velocity, acceleration;
+    internal Vector3 velocity, acceleration;
     private float thrustValue = 20f;
     private float gravity = 9.81f;
     float drag = 1;
     public GameObject theBombCloneTemplate;
+
+    int NextBombSlotIndex = 0;
 
     RS_BombSlotScript[] bombSlots;
 
@@ -22,14 +24,24 @@ public class RS_PlaneControl : MonoBehaviour
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Awake()
     {
-       bombSlots = GetComponentsInChildren<RS_BombSlotScript>();
+
+        print("PLane Awake");
+
+        bombSlots = GetComponentsInChildren<RS_BombSlotScript>();
 
         for (int i = 0; i < bombSlots.Length; i++)
         {
             bombSlots[i].IamTheBoss(this);
         }
+
+    }
+
+
+    void Start()
+    {
+        print("Plane Start");
     }
 
     // Update is called once per frame
@@ -80,9 +92,12 @@ public class RS_PlaneControl : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            GameObject newBombGO = Instantiate(theBombCloneTemplate, transform.position, transform.rotation);
-            RS_BombScript theNewBombScript = newBombGO.GetComponent<RS_BombScript>();
-            theNewBombScript.SetInitialVelocity(velocity);
+            // Drop bomb
+            bombSlots[NextBombSlotIndex].DroptheBomb();
+
+            NextBombSlotIndex = (NextBombSlotIndex + 1) % bombSlots.Length;
+
+            
 
         }
         velocity += acceleration * Time.deltaTime;
