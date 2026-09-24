@@ -4,12 +4,14 @@ public class NQ_PlaneControl : MonoBehaviour
 {
     float pitchingSpeed = 45f;  // Speed in degrees per second for pitching
     private float rollingSpeed = 45f;
-    Vector3 velocity, acceleration;
+    internal Vector3 velocity, acceleration;
     private float thrustValue = 20f;
     private float gravity = 9.81f;
     float drag = 1;
     public GameObject theBombCloneTemplate;
     NQ_BombSlotScript[] bombSlot;
+
+    int NextBombSlotIndex = 0;
 
     internal void TurnRed()
     {
@@ -20,7 +22,8 @@ public class NQ_PlaneControl : MonoBehaviour
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+    private void Awake()
     {
         bombSlot = GetComponentsInChildren<NQ_BombSlotScript>();
 
@@ -29,6 +32,10 @@ public class NQ_PlaneControl : MonoBehaviour
             bombSlot[i].IamTheBoss(this);
 
         }
+    }
+    void Start()
+    {
+
     }
 
     // Update is called once per frame
@@ -78,9 +85,12 @@ public class NQ_PlaneControl : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Return))
         {
-           GameObject newBombGO = Instantiate(theBombCloneTemplate, transform.position, transform.rotation);
-            NQ_BombScript theNewBombScript = newBombGO.GetComponent<NQ_BombScript>();
-            theNewBombScript.SetInitalVelocity(velocity);
+            bombSlot[NextBombSlotIndex].DroptheBomb();
+
+            NextBombSlotIndex += (NextBombSlotIndex + 1) % bombSlot.Length;
+
+            if (NextBombSlotIndex == bombSlot.Length) NextBombSlotIndex = 0;
+
         }
         velocity += acceleration * Time.deltaTime;
         transform.position += velocity * Time.deltaTime;
