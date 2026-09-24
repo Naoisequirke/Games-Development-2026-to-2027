@@ -10,7 +10,7 @@ public class RD_movementScript : MonoBehaviour
     private float gravity = 9.81f;
     private float drag = 1;
     public GameObject theBombCloneTemplate;
-
+    RD_bombSlotScript[] bombSlots;
     internal void TurnRed()
     {
         Renderer r = GetComponent<Renderer>();
@@ -20,7 +20,12 @@ public class RD_movementScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        bombSlots = GetComponentsInChildren<RD_bombSlotScript>();
+
+        for (int i = 0; i < bombSlots.Length; i++)
+        {
+            bombSlots[i].iAmTheBoss(this);
+        }
     }
 
     // Update is called once per frame
@@ -72,7 +77,9 @@ public class RD_movementScript : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            Instantiate(theBombCloneTemplate);
+            GameObject newBombGO = Instantiate(theBombCloneTemplate, transform.position, transform.rotation);
+            RD_bombScript theNewBombScript = newBombGO.GetComponent<RD_bombScript>();
+            theNewBombScript.setInitialVelocity(velocity);
         }
     }
 }
