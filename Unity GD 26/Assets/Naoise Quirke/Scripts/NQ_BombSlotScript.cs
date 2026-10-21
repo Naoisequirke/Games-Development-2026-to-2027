@@ -37,5 +37,16 @@ public class NQ_BombSlotScript : MonoBehaviour
     internal void DroptheBomb()
     {
         theCurrentBomb.Drop(theBoss.velocity);
+        theCurrentBomb = null;
+    }
+
+    internal void instanceatebomb()
+    {
+        InitializeBombAtSlot();
+    }
+
+    internal bool doyouneedbomb()
+    {
+        return theCurrentBomb == null;
     }
 }
