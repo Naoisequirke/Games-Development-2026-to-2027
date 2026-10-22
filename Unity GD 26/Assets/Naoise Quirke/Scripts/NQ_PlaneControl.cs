@@ -21,6 +21,7 @@ public class NQ_PlaneControl : MonoBehaviour, NQ_IDamage, I_Rebombable, I_Refuel
     float fuelconsmptionrate = 1;
 
     int NextBombSlotIndex = 0;
+    private float reloadTime = 5f;
 
     internal void TurnRed()
     {
@@ -116,8 +117,8 @@ public class NQ_PlaneControl : MonoBehaviour, NQ_IDamage, I_Rebombable, I_Refuel
         velocity += acceleration * Time.deltaTime;
         transform.position += velocity * Time.deltaTime;
         //print("fuel" + currentFuel);
-        print("Fuel " + currentFuel.ToString());
-        print("tick " + ticks.ToString());
+        //print("Fuel " + currentFuel.ToString());
+        //print("tick " + ticks.ToString());
         print("ammo: " + ammo.ToString());
     }
 
@@ -129,9 +130,10 @@ public class NQ_PlaneControl : MonoBehaviour, NQ_IDamage, I_Rebombable, I_Refuel
     public void takebombtick(float tickamount)
     {
         ticks += tickamount;
-        print("Reloading");
-        if (ticks >= 1)
+    
+        if (ticks >= reloadTime)
         {
+            print("Reloading");
             allocateBomb();
             //NextBombSlotIndex--;
             //ticks = start;

@@ -30,7 +30,7 @@ public class NQ_RandRScript : MonoBehaviour
             if (RebombableObject != null)
             {
                 print("Foundeder");
-                RebombableObject.takebombtick(0.01f);
+                RebombableObject.takebombtick(Time.deltaTime);
             }
         }
     }
