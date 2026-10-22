@@ -23,3 +23,11 @@ This project explicitly uses a **Test-Driven / Agile Hybrid Lifecycle**. Instead
 
 You must move through these five distinct evolutionary stages sequentially for your assigned tasks. **Do not write code until Stage 2 is signed off by your Tester!**
 
+## Key Deliverables  Friday 30th October. Copy of Github account at midnight.  
+
+- Development Scene
+- Development Code
+- Documentation
+- - Pre-Development Key information as to where things are, key methods, general instructions, testing methodologies.
+- Testing Scene
+- Testing Outcome documentation. 
