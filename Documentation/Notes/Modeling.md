@@ -40,3 +40,13 @@ As before, we need to be able to describe the triangles, this time on the 2D tex
 
 <img width="516" height="398" alt="image" src="https://github.com/user-attachments/assets/271fa3e5-6fbb-4fbd-b7b8-5bc800e89511" />
 
+## Normals
+
+Finally Normals are used in Lighting, and each face has a normal which is a unit vector perpendicular to the surface of the face.
+
+
+<img width="975" height="558" alt="image" src="https://github.com/user-attachments/assets/e1180ed3-0e57-4635-b4fe-eefc17df46e7" />
+
+
+
+
