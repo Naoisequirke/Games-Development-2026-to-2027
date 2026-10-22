@@ -12,8 +12,8 @@ This project explicitly uses a **Test-Driven / Agile Hybrid Lifecycle**. Instead
 | Task ID & Feature | Developer | QA / Tester |
 | :--- | :--- | :--- |
 | **Task 1:** UI Dashboard & Speedometer | **Student 1** | **Student 4** |
-| **Task 2:** Ground Raycast Aim Reticle | **Student 5** | **Student 1** |
-| **Task 3:** Refueling & Rearming Trigger Zone | **Student 3** | **Student 1** |
+| **Task 2:** Ground Raycast Aim Reticle | **Student 4** | **Student 5 ** |
+| **Task 3:** Refueling & Rearming Trigger Zone | **Student 3** | **Student 2** |
 | **Task 4:** Anti-Aircraft Hazards & Health System | **Student 5** | **Student 4** |
 | **Task 5:** Destructible Targets & Explosions | **Student 2** | **Student 3** |
 
