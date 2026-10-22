@@ -87,6 +87,7 @@ public class NQ_PlaneControl : MonoBehaviour, NQ_IDamage, I_Rebombable, I_Refuel
 
         if (Input.GetKey(KeyCode.Space))
         {
+
             if (currentFuel > 0){
                 acceleration += transform.forward * thrustValue;
                 currentFuel -= fuelconsmptionrate * Time.deltaTime;
@@ -94,6 +95,7 @@ public class NQ_PlaneControl : MonoBehaviour, NQ_IDamage, I_Rebombable, I_Refuel
             if (currentFuel < 0){
                     thrustValue = 0;
                 }
+
         }
 
         acceleration += -drag * velocity;
