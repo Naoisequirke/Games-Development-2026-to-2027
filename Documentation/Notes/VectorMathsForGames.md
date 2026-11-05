@@ -138,3 +138,5 @@ A direction is usually a unit vector, so the direction should be the unit vector
 We have already seen that this has magnitude 7, so the direction of the projectile shold be
 
 $\frac17 (2, -3, 6) $
+
+projectile.velocity = ProjectileSpeed * $\frac17 (2, -3, 6) $;
