@@ -154,4 +154,12 @@ We use the following formula
 $v \cdot u = |v||u|\cos(\theta)$ where $\theta$ is the angle between the 2 vectors
 
 So $v \cdot u = 6 \times 4  + 3 \times (-12) + (-2) \times 3 = 24 + -36 -6 = -18$
+$|v| = |(6,3,-2)| = \sqrt{6^2 + 3^2 + (-2)^2} = \sqrt{36 + 9 + 4} = 7$
+
+$|u| = |(4, -12, 3)| = \sqrt{4^2 + (-12)^2 + 3^2} = \sqrt{169} = 13$
+
+So $-18 = 7 \times 13 \times \cos(\theta)$
+or $\cos(\theta) = \frac{-18}{91} = -0.1978...$
+
+Finally  $\theta = \cos^{-1}(-0.1978...) = 101.41 degrees$
 
