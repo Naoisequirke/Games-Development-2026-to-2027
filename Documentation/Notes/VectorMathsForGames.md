@@ -152,3 +152,6 @@ Let $v = (6, 3, -2)$ and $u = (4,-12,3)$
 We use the following formula
 
 $v \cdot u = |v||u|\cos(\theta)$ where $\theta$ is the angle between the 2 vectors
+
+So $v \cdot u = 6 \times 4  + 3 \times (-12) + (-2) \times 3 = 24 + -36 -6 = -18$
+
