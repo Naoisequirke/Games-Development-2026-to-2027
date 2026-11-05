@@ -140,3 +140,15 @@ We have already seen that this has magnitude 7, so the direction of the projecti
 $\frac17 (2, -3, 6) $
 
 projectile.velocity = ProjectileSpeed * $\frac17 (2, -3, 6) $;
+
+
+## Missile Lock, or calculating the actual angle between vectors
+
+You can easily find the exact angle between two vectors using the dot product.
+
+E.g.
+Let $v = (6, 3, -2)$ and $u = (4,-12,3)$
+
+We use the following formula
+
+$v \cdot u = |v||u|\cos(\theta)$ where $\theta$ is the angle between the 2 vectors
