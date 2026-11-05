@@ -125,4 +125,16 @@ $|(-2, 10, 25)| = \sqrt{(-2)^2 + 10^2 + 25^2} = \sqrt{4 + 100 + 625} = \sqrt{729
 $v_{CharForward} = \frac1{27}(-2,10,25)$
 
 Character is facing target if $v_{char to target}$ is in "same direction" (less than 90 degrees) as character forward.  
+So the question is...
 
+Is the angle between (2, -3, 6) and (-2, 10, 25) less than 90 degrees, or is the scalar dot product of the 2 vectors positive?
+
+$(2,-3,6) \cdot (-2,10, 25) = 2 \times (-2) + (-3) \times 10 + 6 \times 25 = -4 + (-30) + 150 = 116 >0$
+
+Yes character is facing the target.
+
+A direction is usually a unit vector, so the direction should be the unit vector parallell to $v_{char to target}  = (2, -3, 6) $
+
+We have already seen that this has magnitude 7, so the direction of the projectile shold be
+
+$\frac17 (2, -3, 6) $
