@@ -91,7 +91,7 @@ $|(4,2,4)| = \sqrt{4^{2} + 2^2 + 4^2} = 6$
 
 $NPC1_{forward} = \frac16 (4,2,4)$
 
-NPC1 is facing NPC2 it NPC1 to NPC2 is in same direction as NPC1.forward.
+NPC1 is facing NPC2 if NPC1 to NPC2 is in same direction as NPC1.forward.
 
 So is (-2,1,-2) in the same direction as (4,2,4)
 
@@ -104,9 +104,25 @@ Is NPC2 facing NPC1?  We need to compare "NPC2 to NPC1" to NPC2 forward
 Clearly NPC2 to NPC1 = -(NPC1 to NPC2) = -(-2,1,-2) = (2,-1,2)
 NPC2.forward is parallel to (7,4,4)
 
-Getting scalar dot product $(2,-1,2) \cdot (7,4,4) = 14 + (-4) + 8 = 18 >0 $   Yes
+Getting scalar dot product $(2,-1,2) \cdot (7,4,4) = 14 + (-4) + 8 = 18 >0$   Yes
 
+NPC1 not facing NPC2
+NPC2 is facing NPC1
+Distance 3 < Max distance 4 
 
+Ans NO 
 
+<img width="744" height="556" alt="image" src="https://github.com/user-attachments/assets/61d90702-c3a6-45b0-8d47-540348cc3978" />
 
+$v_{char to target} = (4,9,6) - (2,12,0) = (2, -3, 6) $
+
+$|v_{char to target}| = |(2,-3,6)| = \sqrt{2^2+(-3)^2 + 6^2} = \sqrt{49} = 7$
+
+The character forward is the unit vector parallell to (-2, 10, 25)
+
+$|(-2, 10, 25)| = \sqrt{(-2)^2 + 10^2 + 25^2} = \sqrt{4 + 100 + 625} = \sqrt{729} = 27$
+
+$v_{CharForward} = \frac1{27}(-2,10,25)$
+
+Character is facing target if $v_{char to target}$ is in "same direction" (less than 90 degrees) as character forward.  
 
