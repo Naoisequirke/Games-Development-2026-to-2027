@@ -7,7 +7,7 @@ public class NQ_ButtonControl : MonoBehaviour
 
     UnityEngine.UI.Button button;
 
-    Text text;
+    TMP_Text text;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -22,6 +22,8 @@ public class NQ_ButtonControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.T)){
+            text.text = "stuff";
+        } 
     }
 }
